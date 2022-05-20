@@ -1,13 +1,95 @@
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<h1> {{username}}님,반갑습니다</h1>
+{{>layouts/header}}
+<br>
+<div class="b-example-divider"></div>
 
-</body>
-</html>
+<div class="bg-dark text-secondary px-4 py-5 text-center">
+    <div class="py-5">
+        <h1 class="display-5 fw-bold text-white">Who am I?</h1>
+        <div class="col-lg-6 mx-auto">
+            <p class="fs-5 mb-4">저희는 게임채팅과 보이스 지원 커뮤니티, 하이라이트 동영상 올리기등 Service를 제공하고있습니다.<br> 그리고 예약 메시지로 원하는 시간에 다른 사용자에게 메시지를 보낼수있습니다</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Login 후 Service이용</button>
+                <button type="button" class="btn btn-outline-light btn-lg px-4">회원가입</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="b-example-divider mb-0"></div>
+
+
+
+
+
+
+
+
+
+<!--동영상 광고  -->
+
+<div class="b-example-divider"></div>
+
+<div class="px-4 pt-5 my-5 text-center border-bottom">
+    <h1 class="display-4 fw-bold">자신의 플레이를 경쟁해보세요!</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">자신의 게임하이라이트를 좋아요를통해 다른사람과 경쟁해보세요!.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+            <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">영상 올리러가기!</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg px-4">랭킹보러가기</button>
+        </div>
+    </div>
+    <div class="overflow-hidden" style="max-height: 50vh;">
+        <div class="container px-5">
+            <img src="bootstrap-docs.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="700" height="500" loading="lazy">
+        </div>
+    </div>
+</div>
+
+<div class="b-example-divider"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- db에서 좋아요 순 3명 뽑아서 구현예정 -->
+<div class="b-example-divider mb-0">
+    <h2>HighLight best 3 <br><br></h2>
+</div>
+<div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+        <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+            <h2>Heading</h2>
+            <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+            <h2>Heading</h2>
+            <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+            <h2>Heading</h2>
+            <p>And lastly this, the third column of representative placeholder content.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+        </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+</div>
+
+{{>layouts/footer}}
