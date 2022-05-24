@@ -1,7 +1,8 @@
 package com.example.gsbproject.dto;
 
+import com.example.gsbproject.entity.Article;
+
 public class ArticleForm {
-    //폼내용이 바로 dto로 전송됨 기존 하던거와는 차이가있음 기존엔
     //데이터 오가는건 무조건  dto  생성
     private String title;
     private String content;
@@ -44,5 +45,9 @@ public class ArticleForm {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Article toEntity() {  // dto로 이동됨 아까만든 entity타입으로받음
+        return  new Article(null,title,content); // dto 에 있는값을 생성자에담아 리턴
     }
 }
