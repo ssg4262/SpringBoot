@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class FirstController {
     @GetMapping("/hi")//부를이름 예전에 배운 서블릿 매핑명이랑 동일
 public String niceToMeetYou(Model model){
-    model.addAttribute("username","고승범");//gsb라는명을 부르면 고승범이라는 값나옴 //너무 기초
+    model.addAttribute("username","고승범");//username 부르면 고승범이라는 값나옴 //너무 기초
 
     return "greetings"; // greetings.mustache 파일찾아서 동작
 

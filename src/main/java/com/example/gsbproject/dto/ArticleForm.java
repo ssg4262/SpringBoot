@@ -1,7 +1,11 @@
 package com.example.gsbproject.dto;
 
 import com.example.gsbproject.entity.Article;
+import lombok.AllArgsConstructor;
+import lombok.ToString;
 
+@AllArgsConstructor
+@ToString
 public class ArticleForm {
     //데이터 오가는건 무조건  dto  생성
     private String title;
@@ -11,7 +15,7 @@ public class ArticleForm {
     //생성자 단축키 art insert
 
 
-    public ArticleForm(String title, String content) {
+   /* public ArticleForm(String title, String content) {
         this.title = title;
         this.content = content;
     }
@@ -25,7 +29,7 @@ public class ArticleForm {
                 "title='" + title + '\'' +
                 ", content='" + content + '\'' +
                 '}';
-    }
+    }*/ //리펙토링하여서 주석처리
 
 
     //당연히 private 여서 get set 만들기
