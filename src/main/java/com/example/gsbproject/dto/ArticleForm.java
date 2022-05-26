@@ -10,7 +10,7 @@ public class ArticleForm {
     //데이터 오가는건 무조건  dto  생성
     private String title;
     private String content;
-
+    private Long id;
 
     //생성자 단축키 art insert
 
@@ -52,6 +52,6 @@ public class ArticleForm {
     }
 
     public Article toEntity() {  // dto로 이동됨 아까만든 entity타입으로받음
-        return  new Article(null,title,content); // dto 에 있는값을 생성자에담아 리턴
+        return  new Article(id,title,content); // dto 에 있는값을 생성자에담아 리턴
     }
 }

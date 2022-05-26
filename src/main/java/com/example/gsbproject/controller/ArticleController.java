@@ -7,12 +7,15 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
+
 import java.util.List;
+import java.util.Optional;
 
 @Controller // 주의 컨트롤러시작할때 항상 선언
 @Slf4j // 로깅을 위한 어노테이션
@@ -67,4 +70,55 @@ public class ArticleController {
         return "articles/index";
        }
 
+
+       @GetMapping("/articles/{id}/edit")
+        public  String edit(@PathVariable Long id, Model model){ // 위에 url로 요청된정보를 가져온다
+        //수정데이터 가져오기
+          Article articleEntity = articleRepository.findById(id).orElse(null);
+        
+        //모델에 데이터 등록
+        model.addAttribute("article",articleEntity); //articleEntity 해당 정보를 article 속성안에
+        
+        // 뷰페이지 설정
+            
+        return "articles/edit";
+       }
+    @PostMapping("/articles/update")
+    public  String update(ArticleForm form){ // dto 로받기
+
+        log.info(form.toString());
+        //1. dto 를 entity 로 변환
+        Article articleEntity = form.toEntity();
+        
+        //2. 엔티티를 db에 저장
+        //2-1 수정이기때문에 앞에 정보를 가져오고
+       Article target = articleRepository.findById(articleEntity.getId()).orElse(null);
+        
+        //2-2 새롭게 저장
+        //if로 거르기 비어있지않다면
+        if(target != null){
+            articleRepository.save(articleEntity); // 비어있지않으면
+        }
+        log.info(form.toString());
+
+        
+        return "redirect:/articles/"+articleEntity.getId();
+        
+    }
+@GetMapping("/articles/{id}/delete")
+    public String delete(@PathVariable  Long id, RedirectAttributes rttr){
+
+
+
+        // 삭제 대상 찾기
+    Article target = articleRepository.findById(id).orElse(null);
+
+    if(target != null){
+        articleRepository.delete(target); // 비어있지않으면
+        rttr.addFlashAttribute("msg","삭제 완료 되었습니다!");
+    }
+
+
+        return "redirect:/articles";
+    }
 }
