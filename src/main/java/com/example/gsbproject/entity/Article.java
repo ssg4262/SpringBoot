@@ -5,12 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity// 어노테이션으로 엔티티로 만들어줌
+@Entity// 어노테이션으로 엔티티로 만들어줌 (db에도 create 테이블이 만들어진다)
 @AllArgsConstructor
 @ToString   //롬북으로리펙토링
 @NoArgsConstructor // 기본생성자 어노테이션
@@ -18,7 +15,7 @@ import javax.persistence.Id;
 public class Article {
     //dto랑 같음
     @Id // 구분짓기위한 값 like a 주민번호
-    @GeneratedValue //  @GeneratedValue 자돟생성 1,2,3,.....
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //  @GeneratedValue 자돟생성 1,2,3,..... db가 id 를 자동생성
     private Long id; //구분짓기위한 아이디를 여기서 만들어줌
 
     @Column
@@ -26,6 +23,15 @@ public class Article {
      
     @Column
     private String content;
+
+    public void patch(Article article) {
+        if(article.title !=null) // 기존에 입력된 title이있다면
+            this.title=article.title; //매개로 오는거에 기존걸넣기
+
+        if(article.content != null)
+            this.content = article.content;
+
+    }
 /*
     public Long getId() {
         return id;

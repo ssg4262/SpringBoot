@@ -2,10 +2,14 @@ package com.example.gsbproject.dto;
 
 import com.example.gsbproject.entity.Article;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @AllArgsConstructor
 @ToString
+@Setter
+@NoArgsConstructor//인수가없는 생성자
 public class ArticleForm {
     //데이터 오가는건 무조건  dto  생성
     private String title;
