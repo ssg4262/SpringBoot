@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller // 주의 컨트롤러시작할때 항상 선언
 @Slf4j // 로깅을 위한 어노테이션
 public class ArticleController {
@@ -38,7 +41,7 @@ public class ArticleController {
 
       Article saved =  articleRepository.save(article);  //articleRepository.save() 위에서 만든 entity를 db에 저장하겠다! 이순간 entity 에있는 자동생성된 아이디값이 null자리에 입력됨
         log.info(saved.toString());
-       return "";// 저장만 하기때매 리턴은 없음
+       return "redirect:/articles/" + saved.getId();// 저장만 하기때매 리턴은 없음
     }
         @GetMapping("/articles/{id}")
     public String show(@PathVariable  Long id, Model model){ // Model model 은 돌려주는값 응답 이라 생각하면 편함
@@ -53,4 +56,15 @@ public class ArticleController {
         return "articles/show";
 
        }
+       @GetMapping("/articles")
+       public String index(Model model){
+     List<Article> articleEntityList =  articleRepository.findAll();
+        //1: 모든  article 을 가져온다
+           
+        // 2: article 을 뷰로전달
+           model.addAttribute("articleList",articleEntityList);
+        
+        return "articles/index";
+       }
+
 }

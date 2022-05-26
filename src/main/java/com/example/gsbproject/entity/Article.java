@@ -1,6 +1,7 @@
 package com.example.gsbproject.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @ToString   //롬북으로리펙토링
 @NoArgsConstructor // 기본생성자 어노테이션
+@Getter
 public class Article {
     //dto랑 같음
     @Id // 구분짓기위한 값 like a 주민번호
@@ -24,6 +26,14 @@ public class Article {
      
     @Column
     private String content;
+/*
+    public Long getId() {
+        return id;
+    }// 롬북으로 @Getter어노테이션으로 처리
+    
+    
+    
+ */
 //   @Column을 붙여서 둘다 컬럼취급
 /*
     //entity 생성자 추가

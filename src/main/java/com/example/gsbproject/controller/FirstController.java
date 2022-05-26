@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class FirstController {
-    @GetMapping("/hi")//부를이름 예전에 배운 서블릿 매핑명이랑 동일
+    @GetMapping("/main")//부를이름 예전에 배운 서블릿 매핑명이랑 동일
 public String niceToMeetYou(Model model){
     model.addAttribute("username","고승범");//username 부르면 고승범이라는 값나옴 //너무 기초
 

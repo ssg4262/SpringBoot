@@ -1,0 +1,26 @@
+{{>layouts/header}}
+<main class="container">
+<table class="table table-dark ">
+    <thead>
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">TITLE</th>
+        <th scope="col">CONTENT</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{! model 어트리 뷰트에 있는걸 이렇게 불러온다 {{#}}
+    {{#articleList}}
+        <tr>
+            <th scope="row">{{id}}</th>
+            <td><a href="/articles/{{id}}" >{{title}}</a></td>
+            <td>{{content}}</td>
+
+        </tr>
+    {{/articleList}}
+
+    </tbody>
+</table>
+<a class="btn btn-primary" href="/articles/new" role="button">글쓰기</a>
+</main>
+{{>layouts/footer}}
